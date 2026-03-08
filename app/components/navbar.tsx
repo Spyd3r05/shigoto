@@ -1,4 +1,4 @@
-import Briefcase from "lucide-react"
+import {Briefcase} from "lucide-react"
 import Image from "next/image"
 import Chibi from "../../public/Chibi.jpg"
 

@@ -16,7 +16,7 @@ const Hero = () => {
 
         <p className="text-slate-500 text-center max-w-2xl text-lg mb-10">
           Real-time opportunities for Computer Science students in Kenya.
-          We scrape the web so you don't have to.
+          I scrape the web so you don't have to.
         </p>
         </main>
   )

@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  --color-text: #1e293b;
+  --color-shigoto-bg: #f8fafc;
+}
+
+body {
+  font-family: var(--font-roboto);
+  color: var(--color-text);
+  background-color: var(--color-shigoto-bg);
+}
