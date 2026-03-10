@@ -1,3 +1,7 @@
+"use client";
+
+import { defaultOpportunities } from "./data/opportunities";
+import { useState } from "react";
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import Searchbar from "./components/searchbar";
@@ -6,13 +10,23 @@ import OpportunityGrid from "./components/opportunity_grid";
 import Footer from "./components/footer";
 
 const Home = () => {
+  const [opportunities] = useState(defaultOpportunities);
+  const [filteredOpportunities, setFilteredOpportunities] =
+    useState(defaultOpportunities);
+  const handleSearch = (query: string) => {
+    setFilteredOpportunities(
+      opportunities.filter((job) =>
+        job.title.toLowerCase().includes(query.toLowerCase()),
+      ),
+    );
+  };
   return (
     <div className="min-h-screen text-slate-800">
       <Navbar />
       <Hero />
-      <Searchbar />
+      <Searchbar handleSearch={handleSearch} />
       <Filters />
-      <OpportunityGrid />
+      <OpportunityGrid opportunities={filteredOpportunities} />
       <Footer />
     </div>
   );

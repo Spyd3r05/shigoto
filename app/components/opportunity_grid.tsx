@@ -1,12 +1,9 @@
 "use client";
 import { useState } from "react";
-import { defaultOpportunities } from "../data/opportunities";
 import OpportunityCard from "./opportunity_card";
 import SectionHeader from "./section_header";
 
-const OpportunityGrid = () => {
-  const [opportunities, setOpportunities] =
-    useState<any[]>(defaultOpportunities);
+const OpportunityGrid = ({ opportunities }: { opportunities: any[] }) => {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   return (
