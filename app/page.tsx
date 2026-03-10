@@ -1,32 +1,18 @@
-"use client";
-
 import { defaultOpportunities } from "./data/opportunities";
-import { useState } from "react";
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
-import Searchbar from "./components/searchbar";
-import Filters from "./components/filters";
-import OpportunityGrid from "./components/opportunity_grid";
 import Footer from "./components/footer";
+import OpportunitySection from "./components/opportunity_section";
 
+// This is now a proper server component.
+// You could fetch data here from a DB/API instead of importing static data.
 const Home = () => {
-  const [opportunities] = useState(defaultOpportunities);
-  const [filteredOpportunities, setFilteredOpportunities] =
-    useState(defaultOpportunities);
-  const handleSearch = (query: string) => {
-    setFilteredOpportunities(
-      opportunities.filter((job) =>
-        job.title.toLowerCase().includes(query.toLowerCase()),
-      ),
-    );
-  };
   return (
     <div className="min-h-screen text-slate-800">
       <Navbar />
       <Hero />
-      <Searchbar handleSearch={handleSearch} />
-      <Filters />
-      <OpportunityGrid opportunities={filteredOpportunities} />
+      {/* Pass server-fetched data DOWN into the client boundary */}
+      <OpportunitySection initialOpportunities={defaultOpportunities} />
       <Footer />
     </div>
   );
